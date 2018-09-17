@@ -1,0 +1,16 @@
+<ul>
+  <li *ngFor="let icon of frameworkConfigService.socialIcons">
+    <a [href]="icon.link">
+      <img [src]="icon.imageFile" alt="icon.alt" class="icon-img">
+    </a>
+  </li>
+</ul>
+
+<div *ngIf="frameworkConfigService.showLanguageSelector">
+  <img class="flag-image" src="assets/barbados-flag-bw.png" alt="Flag">
+  <span>VN</span><span class="glyphicon glyphicon-chevron-down"></span>
+</div>
+
+<div *ngIf="frameworkConfigService.showUserControls">
+  <span>SIGN IN</span>
+</div>
