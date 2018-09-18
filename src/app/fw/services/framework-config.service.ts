@@ -1,3 +1,5 @@
+// show or not show header (social icon, language, user control) and footer
+
 import { Injectable } from '@angular/core';
 
 export interface IconFiles {

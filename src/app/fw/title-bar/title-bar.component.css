@@ -6,7 +6,11 @@
 .title-bar {
   display: flex;
   flex-grow: 1;
-  min-height: 80px;
+  min-height: 90px;
+}
+
+.title-bar img {
+  height: 100%;
 }
 
 .menu-area {

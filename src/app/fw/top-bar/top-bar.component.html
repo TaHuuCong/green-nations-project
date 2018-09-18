@@ -1,4 +1,4 @@
-<ul>
+<ul class="social-icon">
   <li *ngFor="let icon of frameworkConfigService.socialIcons">
     <a [href]="icon.link">
       <img [src]="icon.imageFile" alt="icon.alt" class="icon-img">
@@ -6,9 +6,9 @@
   </li>
 </ul>
 
-<div *ngIf="frameworkConfigService.showLanguageSelector">
-  <img class="flag-image" src="assets/barbados-flag-bw.png" alt="Flag">
-  <span>VN</span><span class="glyphicon glyphicon-chevron-down"></span>
+<div *ngIf="frameworkConfigService.showLanguageSelector" class="language">
+  <img class="flag-image" src="assets/images/vietnam_flag.png" alt="Flag">
+  <span>VN <i class="fa fa-chevron-down"></i></span>
 </div>
 
 <div *ngIf="frameworkConfigService.showUserControls">
