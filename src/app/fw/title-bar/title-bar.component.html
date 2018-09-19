@@ -1,12 +1,18 @@
-<div class="title-bar">
-  <!-- logo area -->
-  <img src="assets/images/logo.png" alt="Green Nations Logo">
-  <!-- end logo area -->
-
-  <!-- menu area -->
-  <div class="menu-area" >
-      <fw-top-bar></fw-top-bar>
-      <fw-menu></fw-menu>
+<!-- responsive: small screen -->
+<div *fwScreenBelowLarge class="title-bar-small">
+  <i class="fa fa-bars"></i>
+  <div class="small-image-holder">
+    <img class="small-image" src="assets/images/logo.png">
   </div>
-  <!-- end menu area -->
+  <i class="fa fa-ellipsis-v"></i>
+</div>
+
+<!-- responsive: large screen -->
+<div *fwScreenLarge class="title-bar">
+  <img src="assets/images/logo.png" alt="Green Nations Logo">
+
+  <div class="menu-area">
+    <fw-top-bar></fw-top-bar>
+    <fw-menu></fw-menu>
+  </div>
 </div>
