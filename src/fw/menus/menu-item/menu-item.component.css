@@ -1,0 +1,51 @@
+:host {
+  display: inline-block;
+}
+
+:host(.vertical-menu) {
+  display: block;
+  color: #fff;
+  margin: 6px 0;
+}
+
+.menu-item {
+  padding: 10px 15px;
+}
+
+.menu-item i {
+  padding-right: 7px;
+}
+
+.menu-item .text {
+  text-transform: uppercase;
+}
+
+.menu-item:hover {
+  background-color: #a4ffa4;
+  cursor: pointer;
+}
+
+.menu-item:focus {
+  outline: 0;
+}
+
+.router-link-active {
+  background-color: #a4ffa4;
+}
+
+.menu-item.vertical-menu {
+  padding: 6px;
+}
+
+.menu-item.vertical-menu:hover {
+  background-color: green;
+}
+
+.menu-item.vertical-menu:focus {
+  outline: 0;
+}
+
+.router-link-active.vertical-menu {
+  background-color: green;
+}
+

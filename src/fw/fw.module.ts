@@ -7,10 +7,14 @@ import { TitleBarComponent } from './title-bar/title-bar.component';
 import { FrameworkConfigService } from './services/framework-config.service';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './menus/menu/menu.component';
 import { ScreenService } from './services/screen.service';
 import { ScreenLargeDirective } from './directives/screen-large.directive';
 import { ScreenBelowLargeDirective } from './directives/screen-below-large.directive';
+import { MenuService } from './services/menu.service';
+import { MenuItemComponent } from './menus/menu-item/menu-item.component';
+import { RouterModule } from '@angular/router';
+import { PopupMenuComponent } from './menus/popup-menu/popup-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +24,19 @@ import { ScreenBelowLargeDirective } from './directives/screen-below-large.direc
     TopBarComponent,
     StatusBarComponent,
     MenuComponent,
+    MenuItemComponent,
+    PopupMenuComponent,
     ScreenLargeDirective,
     ScreenBelowLargeDirective,
   ],
   providers: [
     FrameworkConfigService,
     ScreenService,
+    MenuService,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   exports: [
     FrameworkBodyComponent,

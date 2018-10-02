@@ -1,6 +1,8 @@
 <!-- responsive: small screen -->
 <div *fwScreenBelowLarge class="title-bar-small">
-  <i class="fa fa-bars"></i>
+  <i class="fa fa-bars"
+     (click)="menuService.toggleLeftSideMenu()">
+  </i>
   <div class="small-image-holder">
     <img class="small-image" src="assets/images/logo.png">
   </div>
@@ -13,6 +15,6 @@
 
   <div class="menu-area">
     <fw-top-bar></fw-top-bar>
-    <fw-menu></fw-menu>
+    <fw-menu *ngIf="!menuService.isVertical"></fw-menu>
   </div>
 </div>
