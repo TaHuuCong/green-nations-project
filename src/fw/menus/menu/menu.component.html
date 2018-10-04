@@ -1,6 +1,7 @@
 <nav>
   <ul>
     <li *ngFor="let item of menuService.items">
+      <!-- parent is bigggest menu, is not popup -->
       <fw-menu-item [menu-item]="item"
                     [ngClass]="{'vertical-menu': menuService.isVertical}"
                     [parentIsPopup]="false"

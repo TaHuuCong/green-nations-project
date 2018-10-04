@@ -1,5 +1,5 @@
 <div class="menu-item"
-     [ngClass]="{'vertical-menu': menuService.isVertical}"
+     [ngClass]="{'vertical-menu': menuService.isVertical, 'router-link-active': isActiveRoute}"
      (click)="menuService.showingLeftSideMenu = false">
   <i class="fa {{item.icon}}"></i>
   <span class="text">{{item.text}}</span>

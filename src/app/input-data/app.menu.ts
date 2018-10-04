@@ -14,7 +14,7 @@ export let initialMenuItems: Array<MenuItem> = [
     submenu: [
       {
         text: 'Select',
-        icon: 'fa-chevron-down',
+        icon: 'fa-angle-double-right',
         route: null,
         submenu: [
           {
