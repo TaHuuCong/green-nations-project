@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-// tslint:disable-next-line:no-empty-interface
 export interface MenuItem {
   text: string;
   icon: string;

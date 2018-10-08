@@ -8,7 +8,6 @@ import { MenuService, MenuItem } from '../../services/menu.service';
 })
 export class PopupMenuComponent implements OnInit {
 
-  // tslint:disable-next-line:no-input-rename
   @Input('sub-menu') menu: Array<MenuItem>;
 
   constructor(private menuService: MenuService) { }

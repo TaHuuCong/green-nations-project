@@ -9,16 +9,41 @@ import {
 } from '@angular/core';
 import { MenuItem, MenuService } from '../../services/menu.service';
 import { Router, NavigationEnd } from '@angular/router';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'fw-menu-item',
   templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.css']
+  styleUrls: ['./menu-item.component.css'],
+  animations: [
+    trigger('visibilityChanged', [
+      // :enter is alias to 'void => *'
+      // :leave is alias to '* => void'
+      // void means the DOM element doesn't exist yet, it's not in the DOM
+      // * means any possible state that's visible
+
+      // when a element gets added to the DOM, the opacity will go from 0 to 1
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(500, style({ opacity: 1 }))
+      ]),
+
+      // when a element gets removed to the DOM, the opacity will go from 1 to 0
+      transition(':leave', [
+        animate(500, style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 
 // MenuItemComponent is child of MenuComponent
 export class MenuItemComponent implements OnInit {
-  // tslint:disable-next-line:no-input-rename
   @Input('menu-item')
   item: MenuItem; // property binding from parent component
 
@@ -41,31 +66,38 @@ export class MenuItemComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private menuService: MenuService,
+    public menuService: MenuService,
     private el: ElementRef,
     private renderer: Renderer
   ) {}
 
+  // check the active route
   checkActiveRoute(route: string) {
-    this.isActiveRoute = route === '/' + this.item.route;
+    this.isActiveRoute = (route === '/' + this.item.route);
   }
 
   ngOnInit(): void {
     this.checkActiveRoute(this.router.url);
 
+    // access the events property on router, it's an observable that we can subscribe to
     this.router.events.subscribe(event => {
+      // if event is an instance of NavigationEnd, meaning that the routing has completed
       if (event instanceof NavigationEnd) {
         this.checkActiveRoute(event.url);
-        // console.log(event.url + ' ' + this.item.route + ' ' + this.isActiveRoute);
       }
     });
   }
 
+  // event called when the menu item is clicked
   @HostListener('click', ['$event'])
   onClick(event): void {
     event.stopPropagation();
 
+    // nếu element có submenu != null (route == null)
+    // nếu element có route !=null (submenu == null)
     if (this.item.submenu) {
+      // nếu là menu dọc thì khi có 1 event là onClick: khi click sẽ show popup or hide popup
+      // còn nếu là menu ngang thì có 2 event ở dưới
       if (this.menuService.isVertical) {
         this.mouseInPopup = !this.mouseInPopup;
       }
@@ -82,21 +114,21 @@ export class MenuItemComponent implements OnInit {
     }
   }
 
-  // event called when the mouse enters the popup
+  // nếu là menu ngang thì có 2 event là onPopupMouseEnter và onPopupMouseLeave
+  // khi mouse enter thì show popup, khi mouse leave thì show hide
+  // --> event binding từ view đến data source
   onPopupMouseEnter(event): void {
     if (!this.menuService.isVertical) {
       this.mouseInPopup = true;
     }
   }
-
-  // event called when the mouse leaves the popup
   onPopupMouseLeave(event): void {
     if (!this.menuService.isVertical) {
       this.mouseInPopup = false;
     }
   }
 
-  // event called when the mouse enters the menu item
+  // khi 2 sự kiện dưới đây được kích hoạt thì nó gọi hàm tương ứng
   @HostListener('mouseenter')
   onMouseEnter(): void {
     if (!this.menuService.isVertical) {
@@ -110,9 +142,7 @@ export class MenuItemComponent implements OnInit {
     }
   }
 
-  // event called when the mouse leaves the menu item
-  // name of event: mouseleave; parameter: $event
-  @HostListener('mouseleave', ['$event'])
+  @HostListener('mouseleave', ['$event']) // $event là parameter
   onMouseLeave(event): void {
     if (!this.menuService.isVertical) {
       this.mouseInItem = false;

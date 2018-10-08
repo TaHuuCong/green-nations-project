@@ -28,11 +28,11 @@
 }
 
 .menu-item {
-  padding: 10px 15px;
+  padding: 10px 14px;
 }
 
 .menu-item i {
-  padding-right: 7px;
+  padding: 0 7px;
 }
 
 .menu-item .text {
@@ -68,3 +68,6 @@
   background-color: green;
 }
 
+.fa-angle-down, .fa-angle-left, .fa-angle-right {
+  float: right;
+}

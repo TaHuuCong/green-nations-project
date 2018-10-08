@@ -4,7 +4,7 @@ export let initialMenuItems: Array<MenuItem> = [
   {
     text: 'Dashboard',
     icon: 'fa-dashboard',
-    route: '/dashboard',
+    route: 'dashboard',
     submenu: null
   },
   {
@@ -14,7 +14,7 @@ export let initialMenuItems: Array<MenuItem> = [
     submenu: [
       {
         text: 'Select',
-        icon: 'fa-angle-double-right',
+        icon: 'fa-caret-square-o-right',
         route: null,
         submenu: [
           {
