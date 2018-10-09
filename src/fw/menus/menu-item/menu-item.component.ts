@@ -88,7 +88,10 @@ export class MenuItemComponent implements OnInit {
     });
   }
 
-  // event called when the menu item is clicked
+  // @HostListener: khi sự kiện dưới đây được kích hoạt thì nó gọi hàm tương ứng
+
+  // nếu là menu dọc thì khi có 1 sự kiện là click
+  // khi click sẽ show popup or hide popup
   @HostListener('click', ['$event'])
   onClick(event): void {
     event.stopPropagation();
@@ -96,7 +99,6 @@ export class MenuItemComponent implements OnInit {
     // nếu element có submenu != null (route == null)
     // nếu element có route !=null (submenu == null)
     if (this.item.submenu) {
-      // nếu là menu dọc thì khi có 1 event là onClick: khi click sẽ show popup or hide popup
       // còn nếu là menu ngang thì có 2 event ở dưới
       if (this.menuService.isVertical) {
         this.mouseInPopup = !this.mouseInPopup;
@@ -114,9 +116,10 @@ export class MenuItemComponent implements OnInit {
     }
   }
 
-  // nếu là menu ngang thì có 2 event là onPopupMouseEnter và onPopupMouseLeave
-  // khi mouse enter thì show popup, khi mouse leave thì show hide
-  // --> event binding từ view đến data source
+  // nếu là menu ngang thì có 2 sự kiện: mouse enter/leave on popup/item
+  // nếu mouse enter on popup hoặc on item thì show popup, mouse leave thì hide popup
+
+  // mouse enter/leave on popup
   onPopupMouseEnter(event): void {
     if (!this.menuService.isVertical) {
       this.mouseInPopup = true;
@@ -128,7 +131,7 @@ export class MenuItemComponent implements OnInit {
     }
   }
 
-  // khi 2 sự kiện dưới đây được kích hoạt thì nó gọi hàm tương ứng
+  // mouse enter/leave on item
   @HostListener('mouseenter')
   onMouseEnter(): void {
     if (!this.menuService.isVertical) {
