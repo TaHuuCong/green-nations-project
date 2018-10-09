@@ -2,16 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { FwModule } from '../fw/fw.module';
+import { appRoutes } from './routing/app.routing';
 
 import { AppComponent } from './app.component';
-import { FwModule } from '../fw/fw.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './routing/app.routing';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { CountryListComponent } from './country-list/country-list.component';
 import { CountryMaintComponent } from './country-maint/country-maint.component';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CountryMaintComponent } from './country-maint/country-maint.component';
     CountryDetailComponent,
     CountryListComponent,
     CountryMaintComponent,
+    AuthenticatedUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
 import { FrameworkConfigSettings } from '../../fw/services/framework-config.service';
 
-
 export let initialFWConfig: FrameworkConfigSettings = {
   socialIcons: [
     { imageFile: 'assets/images/facebook.png', alt: 'Facebook', link: 'http://www.facebook.com'},

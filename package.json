@@ -26,6 +26,7 @@
     "glyphicons": "^0.2.0",
     "ngx-bootstrap": "^3.0.1",
     "rxjs": "~6.2.0",
+    "rxjs-compat": "^6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
