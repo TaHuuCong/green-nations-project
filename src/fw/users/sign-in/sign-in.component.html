@@ -4,13 +4,13 @@
   <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
     <div class="form-group">
       <input class="form-control" name="username" required placeholder="User Name" ngModel #username="ngModel" />
-      <div [hidden]="username.valid || username.pristine" class="error alert alert-danger">
+      <div *ngIf="signInForm.submitted && !username.valid" class="error alert alert-danger">
         User Name is required.
       </div>
     </div>
     <div class="form-group">
       <input class="form-control" name="password" required type="password" placeholder="Password" ngModel #password="ngModel" />
-      <div [hidden]="password.valid || password.pristine" class="error alert alert-danger">
+      <div *ngIf="signInForm.submitted && !password.valid" class="error alert alert-danger">
         Password is required.
       </div>
     </div>
@@ -19,8 +19,8 @@
         <input type="checkbox" name="rememberMe" ngModel /> Remember Me
       </label>
     </div>
-    <div *ngIf="formError" class="error alert alert-danger">
-      {{ formError }}
+    <div [hidden]="!formError || signInForm.invalid" class="error alert alert-danger">
+      Invalid User Name and/or Password.
     </div>
     <div *ngIf="!submitting">
       <a routerLink="/register" routerLinkActive="active">Register</a>

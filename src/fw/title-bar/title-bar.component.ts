@@ -10,7 +10,7 @@ import { MenuService } from '../services/menu.service';
 export class TitleBarComponent implements OnInit {
 
   constructor(private screenService: ScreenService,
-              private menuService: MenuService) { }
+              public menuService: MenuService) { }
 
   ngOnInit() {
   }

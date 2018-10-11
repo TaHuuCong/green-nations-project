@@ -24,14 +24,9 @@ li {
   display: inline-block;
 }
 
-:host(.vertical-menu) li {
-  width: 100%;
-}
-
 button {
   width: 32px;
   height: 32px;
-  margin-top: 20px;
 }
 
 button.horizontal {
@@ -42,3 +37,16 @@ button.horizontal {
 button:focus {
   box-shadow: none;
 }
+
+:host(.vertical-menu) li {
+  width: 100%;
+}
+
+:host(.vertical-menu) nav {
+  margin-top: 15px;
+}
+
+:host(.vertical-menu) button {
+  margin-top: 20px;
+}
+

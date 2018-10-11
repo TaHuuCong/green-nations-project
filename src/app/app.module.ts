@@ -14,6 +14,11 @@ import { CountryListComponent } from './country-list/country-list.component';
 import { CountryMaintComponent } from './country-maint/country-maint.component';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 
+import { UserService } from './services/user.service';
+import { UserApi } from '../fw/users/user-api';
+import { AuthGuardService } from './services/auth-guard.service';
+import { CountryService } from './services/country.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,15 @@ import { AuthenticatedUserComponent } from './authenticated-user/authenticated-u
     FwModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  // we provide the UserService
+  // but the framework doesn't know anything about UserService, it does know about the UserApi
+  // use the existing token UserService
+  providers: [
+    UserService,
+    { provide: UserApi, useExisting: UserService },
+    AuthGuardService,
+    CountryService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

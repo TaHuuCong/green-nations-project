@@ -34,7 +34,7 @@ export class ScreenLargeDirective implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.screenSubscription.unsubscribe();
+    // this.screenSubscription.unsubscribe();
   }
 
   onResize() {

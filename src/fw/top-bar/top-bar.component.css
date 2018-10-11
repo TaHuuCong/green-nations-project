@@ -51,3 +51,12 @@ ul li .icon-img {
   vertical-align: top;
   margin-top: 8px;
 }
+
+.sign-out {
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.sign-out:hover {
+  color: green;
+}

@@ -1,6 +1,6 @@
 import { Directive, ViewContainerRef, TemplateRef, Input, OnDestroy } from '@angular/core';
 import { ScreenService } from '../services/screen.service';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 @Directive({
   selector: '[fwScreenBelowLarge]'
@@ -14,7 +14,7 @@ export class ScreenBelowLargeDirective implements OnDestroy {
     private viewContainer: ViewContainerRef,
     private template: TemplateRef<Object>,
     private screenService: ScreenService) {
-      screenService.resize$.subscribe(() => this.onResize());
+      this.screenSubscription = screenService.resize$.subscribe(() => this.onResize());
   }
 
   @Input()
@@ -33,7 +33,7 @@ export class ScreenBelowLargeDirective implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.screenSubscription.unsubscribe();
+    // this.screenSubscription.unsubscribe();
   }
 
   onResize() {

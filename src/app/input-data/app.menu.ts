@@ -4,7 +4,7 @@ export let initialMenuItems: Array<MenuItem> = [
   {
     text: 'Dashboard',
     icon: 'fa-dashboard',
-    route: 'dashboard',
+    route: 'authenticated/dashboard',
     submenu: null
   },
   {
@@ -20,19 +20,19 @@ export let initialMenuItems: Array<MenuItem> = [
           {
             text: 'USA',
             icon: 'fa-flag',
-            route: 'country-detail/USA',
+            route: 'authenticated/country-detail/USA',
             submenu: null
           },
           {
             text: 'Japan',
             icon: 'fa-flag',
-            route: 'country-detail/Japan',
+            route: 'authenticated/country-detail/Japan',
             submenu: null
           },
           {
             text: 'VN',
             icon: 'fa-flag',
-            route: 'country-detail/VN',
+            route: 'authenticated/country-detail/VN',
             submenu: null
           }
         ]
@@ -40,38 +40,38 @@ export let initialMenuItems: Array<MenuItem> = [
       {
         text: 'Top 3',
         icon: 'fa-flag',
-        route: 'country-list/3',
+        route: 'authenticated/country-list/3',
         submenu: null
       },
       {
         text: 'Top 10',
         icon: 'fa-flag',
-        route: 'country-list/10',
+        route: 'authenticated/country-list/10',
         submenu: null
       },
       {
         text: 'All',
         icon: 'fa-flag',
-        route: 'country-list/0',
+        route: 'authenticated/country-list/0',
         submenu: null
       }
     ],
   },
   {
-    text: 'Settings',
+    text: 'Maintenance',
     icon: 'fa-wrench',
     route: null,
       submenu: [
         {
           text: 'Country List',
           icon: 'fa-th-list',
-          route: 'country-maint',
+          route: 'authenticated/country-maint',
           submenu: null
         },
         {
           text: 'Settings',
           icon: 'fa-cog',
-          route: 'settings',
+          route: 'authenticated/settings',
           submenu: null
         }
       ]
