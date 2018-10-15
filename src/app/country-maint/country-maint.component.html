@@ -1,39 +1,41 @@
 <h3>Country Maintenance</h3>
-<button class="btn btn-primary" (click)="createCountry()">Add New Country</button>
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Country</th>
-      <th>EPI Index</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let country of countries">
-      <td>{{ country.id }}</td>
-      <td>{{ country.name }}</td>
-      <td>{{ country.epiIndex }}</td>
-      <td>
-        <button class="btn btn-primary" (click)="showCountryDetail(country.id)">
-          Details
-        </button>
-        <button class="btn btn-warning" (click)="editCountry(country.id)">
-          Edit
-        </button>
-        <button class="btn btn-danger" (click)="deleteCountryQuestion(country.id)">
-          Delete
-        </button>
-      </td>
-      <td *ngIf="country.id === deleteId && !isDeleting">
-        Delete this country?
-        <button class="btn btn-primary" (click)="cancelDelete()">Cancel</button>
-        <button class="btn btn-danger" (click)="deleteCountry(country.id)">Delete</button>
-        <p *ngIf="deleteError">{{ deleteError }}</p>
-      </td>
-      <td *ngIf="country.id === deleteId && isDeleting">
-        Deleting...
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="content">
+  <button class="btn btn-primary" (click)="createCountry()">Add New Country</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Country</th>
+        <th>EPI Index</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries">
+        <td>{{ country.id }}</td>
+        <td>{{ country.name }}</td>
+        <td>{{ country.epiIndex }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="showCountryDetail(country.id)">
+            Details
+          </button>
+          <button class="btn btn-warning" (click)="editCountry(country.id)">
+            Edit
+          </button>
+          <button class="btn btn-danger" (click)="deleteCountryQuestion(country.id)">
+            Delete
+          </button>
+        </td>
+        <td *ngIf="country.id === deleteId && !isDeleting">
+          Delete this country?
+          <button class="btn btn-primary" (click)="cancelDelete()">Cancel</button>
+          <button class="btn btn-danger" (click)="deleteCountry(country.id)">Delete</button>
+          <p *ngIf="deleteError">{{ deleteError }}</p>
+        </td>
+        <td *ngIf="country.id === deleteId && isDeleting">
+          Deleting...
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

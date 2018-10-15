@@ -3,20 +3,33 @@
 }
 
 h3 {
+  padding-top: 20px;
   margin-bottom: 2.25rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.content {
+  margin: 0 auto;
+  width: 60%;
 }
 
 table {
+  width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
 table thead tr th:first-child {
-  width: 40px;
+  width: 50px;
 }
 
-table thead tr th:not(:first-child) {
-  min-width: 150px;
+table thead tr th:first-child(3) {
+  width: 120px;
+}
+
+table thead tr th:last-child {
+  width: 350px;
 }
 
 tr:nth-of-type(odd) {
@@ -31,6 +44,11 @@ th {
 }
 
 td {
+  text-align: center;
+  word-break: break-all;
+}
+
+td:nth-child(2) {
   text-align: left;
 }
 

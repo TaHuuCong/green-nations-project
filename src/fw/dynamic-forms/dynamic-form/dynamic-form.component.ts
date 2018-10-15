@@ -39,9 +39,9 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-     if (changes['errorMessage'].currentValue && this.status === 'waiting') {
-       this.status = '';
-     }
+    if (changes['errorMessage'].currentValue && this.status === 'waiting') {
+      this.status = '';
+    }
   }
 
   ngOnInit() {
@@ -50,7 +50,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
     this.route.params.subscribe(params => {
       this.operation = params['operation'];
       this.clearForm();
-     });
+    });
   }
 
   onBack() {
@@ -71,7 +71,7 @@ export class DynamicFormComponent implements OnChanges, OnInit {
   }
 
   onEdit() {
-    this.router.navigate(['../', 'edit'], { relativeTo: this.route});
+    this.router.navigate(['../', 'edit'], { relativeTo: this.route });
   }
 
   onSave() {
@@ -80,5 +80,9 @@ export class DynamicFormComponent implements OnChanges, OnInit {
       this.status = 'waiting';
       this.update.emit(this.form.value);
     }
+  }
+
+  onSubmit() {
+
   }
 }
