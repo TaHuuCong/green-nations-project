@@ -29,7 +29,7 @@ table thead tr th:first-child(3) {
 }
 
 table thead tr th:last-child {
-  width: 350px;
+  width: 380px;
 }
 
 tr:nth-of-type(odd) {
@@ -54,7 +54,7 @@ td:nth-child(2) {
 
 td,
 th {
-  padding: 6px;
+  padding: 8px;
   border: 1px solid #ccc;
 }
 
@@ -62,4 +62,32 @@ table button {
   color: #fff;
   width: 80px;
   margin: 0 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  .content {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 563px) {
+  table button:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  td.delete-country button {
+    margin-top: 8px;
+  }
 }

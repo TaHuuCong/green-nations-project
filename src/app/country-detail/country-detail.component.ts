@@ -50,7 +50,9 @@ export class CountryDetailComponent implements OnInit {
     if (this.operation === 'create') {
       this.country = { id: 0, name: '', epiIndex: null };
     } else {
-      this.countryService.getCountry(this.route.snapshot.params['id'])
+      // hàm getCountry() nhận param đầu vào là 1 id ở dạng number, mà khi dùng route.snapshot.params thì id ở dạng string
+      // --> cần convert id về dạng number (+)
+      this.countryService.getCountry(+this.route.snapshot.params['id'])
         .subscribe((newCountry: Country) => this.country = newCountry);
     }
   }
